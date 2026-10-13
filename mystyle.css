@@ -1,0 +1,84 @@
+
+/* General page styles */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    background-color: #f5f1e8;
+    color: #333333;
+    line-height: 1.6;
+}
+
+/* Moab banner */
+.banner {
+    display: block;
+    width: 100%;
+    max-width: 1000px;
+    height: auto;
+    margin: 0 auto;
+}
+
+/* Horizontal navigation bar */
+.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #333333;
+    display: flex;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Navigation links */
+.navbar li {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 22px;
+    text-decoration: none;
+}
+
+/* Hover color for pages that are not active */
+.navbar a:not(.active):hover {
+    background-color: #b85c38;
+    color: white;
+}
+
+/* Active page color */
+.navbar a.active {
+    background-color: #8b2f1c;
+    color: white;
+}
+
+/* Page headings and content spacing */
+h1 {
+    color: #8b2f1c;
+    margin: 24px 20px 12px;
+}
+
+p {
+    margin: 12px 20px;
+}
+
+body > img:not(.banner) {
+    max-width: calc(100% - 40px);
+    height: auto;
+    margin: 12px 20px;
+}
+
+hr {
+    margin: 20px;
+}
+
+/* Small-screen navigation */
+@media screen and (max-width: 500px) {
+    .navbar a {
+        padding: 12px 10px;
+        font-size: 14px;
+    }
+}
