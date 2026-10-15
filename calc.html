@@ -1,128 +1,73 @@
 
+
 <!DOCTYPE html>
 <html>
 <head>
-    <title>My Four Function Calculator</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin-top: 60px;
-            background-color: #f0f4f8;
-        }
-
-        .calculator {
-            background-color: white;
-            padding: 30px;
-            margin: auto;
-            max-width: 350px;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px #cccccc;
-        }
-
-        input {
-            width: 80%;
-            padding: 10px;
-            margin: 8px;
-            font-size: 16px;
-        }
-
-        button {
-            padding: 12px 18px;
-            margin: 5px;
-            font-size: 16px;
-            cursor: pointer;
-            border: none;
-            border-radius: 5px;
-            background-color: #2463a6;
-            color: white;
-        }
-
-        button:hover {
-            background-color: #164477;
-        }
-
-        #result {
-            font-size: 22px;
-            font-weight: bold;
-            margin-top: 20px;
-        }
-    </style>
+    <title>JavaScript Calculator</title>
 </head>
-
 <body>
 
-    <div class="calculator">
-        <h1>My Calculator</h1>
+    <h1>This is a sample JavaScript and HTML document.</h1>
 
-        <input type="number" id="num1" placeholder="Enter first number">
-        <input type="number" id="num2" placeholder="Enter second number">
+    <p>Enter two numbers:</p>
 
-        <br>
+    <input type="number" id="num1" value="45">
+    <input type="number" id="num2" value="7">
 
-        <button onclick="add()">+</button>
-        <button onclick="subtract()">−</button>
-        <button onclick="multiply()">×</button>
-        <button onclick="divide()">÷</button>
-        <button onclick="power()">xʸ</button>
+    <br><br>
 
-        <p id="result">Result: </p>
-    </div>
+    <button onclick="addNumbers()">Add the Numbers</button>
+    <button onclick="subtractNumbers()">Subtract the Numbers</button>
+    <button onclick="multiplyNumbers()">Multiply the Numbers</button>
+    <button onclick="divideNumbers()">Divide the Numbers</button>
+    <button onclick="powerNumbers()">Raise to a Power</button>
+
+    <p id="result">Your Answer is:</p>
 
     <script>
-        function getNumbers() {
-            let a = parseFloat(document.getElementById("num1").value);
-            let b = parseFloat(document.getElementById("num2").value);
+        function addNumbers() {
+            let num1 = Number(document.getElementById("num1").value);
+            let num2 = Number(document.getElementById("num2").value);
 
-            if (isNaN(a) || isNaN(b)) {
+            document.getElementById("result").innerHTML =
+                "Your Answer is: " + (num1 + num2);
+        }
+
+        function subtractNumbers() {
+            let num1 = Number(document.getElementById("num1").value);
+            let num2 = Number(document.getElementById("num2").value);
+
+            document.getElementById("result").innerHTML =
+                "Your Answer is: " + (num1 - num2);
+        }
+
+        function multiplyNumbers() {
+            let num1 = Number(document.getElementById("num1").value);
+            let num2 = Number(document.getElementById("num2").value);
+
+            document.getElementById("result").innerHTML =
+                "Your Answer is: " + (num1 * num2);
+        }
+
+        function divideNumbers() {
+            let num1 = Number(document.getElementById("num1").value);
+            let num2 = Number(document.getElementById("num2").value);
+
+            if (num2 === 0) {
                 document.getElementById("result").innerHTML =
-                    "Please enter both numbers.";
-                return null;
-            }
-
-            return [a, b];
-        }
-
-        function add() {
-            let numbers = getNumbers();
-            if (numbers === null) return;
-            document.getElementById("result").innerHTML =
-                "Result: " + (numbers[0] + numbers[1]);
-        }
-
-        function subtract() {
-            let numbers = getNumbers();
-            if (numbers === null) return;
-            document.getElementById("result").innerHTML =
-                "Result: " + (numbers[0] - numbers[1]);
-        }
-
-        function multiply() {
-            let numbers = getNumbers();
-            if (numbers === null) return;
-            document.getElementById("result").innerHTML =
-                "Result: " + (numbers[0] * numbers[1]);
-        }
-
-        function divide() {
-            let numbers = getNumbers();
-            if (numbers === null) return;
-
-            if (numbers[1] === 0) {
+                    "You cannot divide by zero.";
+            } else {
                 document.getElementById("result").innerHTML =
-                    "Cannot divide by zero.";
-                return;
+                    "Your Answer is: " + (num1 / num2);
             }
-
-            document.getElementById("result").innerHTML =
-                "Result: " + (numbers[0] / numbers[1]);
         }
 
-        function power() {
-            let numbers = getNumbers();
-            if (numbers === null) return;
+        function powerNumbers() {
+            let num1 = Number(document.getElementById("num1").value);
+            let num2 = Number(document.getElementById("num2").value);
+
             document.getElementById("result").innerHTML =
-                "Result: " + Math.pow(numbers[0], numbers[1]);
+                "Your Answer is: " + Math.pow(num1, num2);
         }
     </script>
 
